@@ -1,2 +1,9 @@
+TBR
+playground
+
 env
 .ipynb_checkpoints/
+scores/
+
+__pycache__
+.vscode
