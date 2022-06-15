@@ -7,3 +7,4 @@ scores/
 
 __pycache__
 .vscode
+.mscbackup/
