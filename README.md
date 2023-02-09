@@ -5,8 +5,8 @@
     title="Approximate patterns of all voices in Summa">
 
 
-The project *Algo Pärt* attemps to reconstruct compositions of Arvo Pärt algorithmically.
-Compositions in his tintinnabuli style are often composed following strict rules.
+The project *Algo Pärt* attemps to reconstruct compositions of [Arvo Pärt](https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt) algorithmically.
+Compositions in his [tintinnabuli](https://en.wikipedia.org/wiki/Tintinnabuli) style are often composed following strict rules.
 By trying to reconstruct those rules, we can better understand how his compositions work.
 We refer to this method of musical analysis as *analysis by synthesis*. 
 
