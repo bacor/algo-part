@@ -1,4 +1,4 @@
-Algo Pärt
+👾 Algo Pärt
 ==========
 
 <img src="summa/figures/approximate-patterns/approximate-patterns.jpg?raw=true" width="800" 
