@@ -5,15 +5,15 @@
     title="Approximate patterns of all voices in Summa">
 
 
-The project *AlgoPärt* attemps to reconstruct compositions of [Arvo Pärt](https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt) algorithmically.
+The project AlgoPärt attemps to reconstruct compositions of [Arvo Pärt](https://en.wikipedia.org/wiki/Arvo_P%C3%A4rt) algorithmically.
 Compositions in his [tintinnabuli](https://en.wikipedia.org/wiki/Tintinnabuli) style are often composed following strict rules.
 By trying to reconstruct those rules, we can better understand how his compositions work.
 We refer to this method of musical analysis as *analysis by synthesis*. 
 
-`tintinnabulipy`
+Tintinnabulipy
 ---------------
 
-The directory `tintinnabulipy` contains some code that allows you to work with M- and T-spaces, tintinnabuli positions and tintinnabuli processes. In particular, it makes plotting them easier:
+The directory [`tintinnabulipy`](/tintinnabulipy/) contains some code that allows you to work with M- and T-spaces, tintinnabuli positions and tintinnabuli processes. In particular, it makes plotting them easier:
 
 ```python
 from tintinnabulipy import *
