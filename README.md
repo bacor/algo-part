@@ -10,6 +10,14 @@ Compositions in his [tintinnabuli](https://en.wikipedia.org/wiki/Tintinnabuli) s
 By trying to reconstruct those rules, we can better understand how his compositions work.
 We refer to this method of musical analysis as *analysis by synthesis*. 
 
+
+Works
+-----
+
+Currently a full reconstruction has only been attempted for one work:
+
+- *Summa* (1977)
+
 Tintinnabulipy
 ---------------
 
