@@ -8,3 +8,4 @@ scores/
 __pycache__
 .vscode
 .mscbackup/
+.DS_Store
