@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 # Name:         spaces.py
-# Purpose:      Implement tintanibulli processes
+# Purpose:      Implement tintinnabuli processes
 #
 # Authors:      Bas Cornelissen
 #
@@ -13,7 +13,7 @@ from typing import Union, Iterable, Optional
 
 from music21.pitch import Pitch
 
-from .spaces import TintanibulliSpace
+from .spaces import TintinnabuliSpace
 from .spaces import MelodicSpace
 from .spaces import rotate_tail
 
@@ -22,22 +22,22 @@ from music21.chord import Chord
 from music21.scale import MajorScale
 
 
-class TintanibulliProcess:
-    """An abstract tintanibulli process class"""
+class TintinnabuliProcess:
+    """An abstract tintinnabuli process class"""
 
-    def __init__(self, T: TintanibulliSpace) -> TintanibulliProcess:
-        """An abstract tintanibulli class
+    def __init__(self, T: TintinnabuliSpace) -> TintinnabuliProcess:
+        """An abstract tintinnabuli class
 
         Parameters
         ----------
-        T : TintanibulliSpace
-            The tintanibulli space
+        T : TintinnabuliSpace
+            The tintinnabuli space
         """
         self.T = T
 
     def step(self, index: int, melody: Iterable[Pitch], ts: Iterable[Pitch]) -> Pitch:
-        """Compute the next pitch in the tintanibulli process based on melody
-        and previous tintanibulli pitches. The method is overriden by inheriting
+        """Compute the next pitch in the tintinnabuli process based on melody
+        and previous tintinnabuli pitches. The method is overriden by inheriting
         classes.
 
         Parameters
@@ -48,13 +48,13 @@ class TintanibulliProcess:
         melody : Iterable[Pitch]
             The melody as a sequence of pitches
         ts : Iterable[Pitch]
-            A sequence of previous tintanibulli pitches of length `index`.
+            A sequence of previous tintinnabuli pitches of length `index`.
             These previous pitches have also been computed by the step method.
 
         Returns
         -------
         Pitch
-            The next tintanibulli pitch
+            The next tintinnabuli pitch
         """
         raise NotImplemented
 
@@ -64,22 +64,22 @@ class TintanibulliProcess:
         t0: Optional[Pitch] = None,
         p0: Optional[int] = None,
     ) -> Iterable[Pitch]:
-        """Compute the tintanibulli voice for a given melody. You can specify
-        the starting pitch as a pitch t0 or as the tintanibulli position p0.
+        """Compute the tintinnabuli voice for a given melody. You can specify
+        the starting pitch as a pitch t0 or as the tintinnabuli position p0.
 
         Parameters
         ----------
         melody : Iterable[Pitch]
-            The melody for which to compute the tintanibulli process
+            The melody for which to compute the tintinnabuli process
         t0 : Optional[Pitch], optional
-            The initial tintanibulli pitch, by default None
+            The initial tintinnabuli pitch, by default None
         p0 : Optional[Pitch], optional
-            The initial tintanibulli position, by default None
+            The initial tintinnabuli position, by default None
 
         Returns
         -------
         Iterable[Pitch]
-            A sequence of tintanibulli pitches
+            A sequence of tintinnabuli pitches
 
         Raises
         ------
@@ -99,12 +99,12 @@ class TintanibulliProcess:
         return ts
 
 
-class ConstantProcess(TintanibulliProcess):
-    """A constant tintanibulli process that consistently computes the
+class ConstantProcess(TintinnabuliProcess):
+    """A constant tintinnabuli process that consistently computes the
     pitch in a constant position.
 
     >>> M = MelodicSpace(MajorScale('C4'))
-    >>> T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
+    >>> T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
     >>> melody = M.mode1(4)
     >>> [m.nameWithOctave for m in melody]
     ['C4', 'D4', 'E4', 'F4', 'G4']
@@ -124,7 +124,7 @@ class ConstantProcess(TintanibulliProcess):
         The position
     """
 
-    def __init__(self, T: TintanibulliSpace, position: int) -> ConstantProcess:
+    def __init__(self, T: TintinnabuliSpace, position: int) -> ConstantProcess:
         """"""
         self.position = position
         super().__init__(T=T)
@@ -136,16 +136,16 @@ class ConstantProcess(TintanibulliProcess):
         return self.T.neighbor(melody[index], self.position)
 
 
-class AlternatingProcess(TintanibulliProcess):
-    """Tintanibulli process that alternates the tintanibulli position above
+class AlternatingProcess(TintinnabuliProcess):
+    """Tintinnabuli process that alternates the tintinnabuli position above
     and below the melody.
 
     Differently put, this process in every step flips the sign of the position.
-    The position `p0` of the first tintanibulli note therefore determines the
+    The position `p0` of the first tintinnabuli note therefore determines the
     remainder of the process.
 
     >>> M = MelodicSpace(MajorScale('C4'))
-    >>> T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
+    >>> T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
     >>> melody = M.mode1(4)
     >>> [m.nameWithOctave for m in melody]
     ['C4', 'D4', 'E4', 'F4', 'G4']
@@ -158,7 +158,7 @@ class AlternatingProcess(TintanibulliProcess):
 
     Parameters
     ----------
-    TintanibulliProcess : [type]
+    TintinnabuliProcess : [type]
         [description]
     """
 
@@ -167,10 +167,12 @@ class AlternatingProcess(TintanibulliProcess):
         return self.T.neighbor(melody[i], -1 * prev_pos)
 
 
-class StepProcess(TintanibulliProcess):
-    def __init__(self, T: TintanibulliSpace, position: int) -> StepProcess:
+class StepProcess(TintinnabuliProcess):
+    def __init__(self, T: TintinnabuliSpace, position: int) -> StepProcess:
         self.position = position
         super().__init__(T=T)
+
+    # TODO: You don't need m_prev
 
     def _step_positive(self, m_cur, m_prev, t_prev):
         inferior = self.T.down(t_prev)
@@ -200,7 +202,7 @@ class StepProcess(TintanibulliProcess):
         return super().__call__(melody, p0=p0, t0=t0)
 
 
-class OrnamentProcess(TintanibulliProcess):
+class OrnamentProcess(TintinnabuliProcess):
     def __init__(self, T, min_pitch, max_pitch, min_target='C0', max_target='C10'):
         self.min_pitch = Pitch(min_pitch)
         self.max_pitch = Pitch(max_pitch)
@@ -221,7 +223,7 @@ class OrnamentProcess(TintanibulliProcess):
             return False
 
 
-class TailRotatedPatternProcess(TintanibulliProcess):
+class TailRotatedPatternProcess(TintinnabuliProcess):
     def __init__(self, T, pattern: Iterable[Pitch]):
         self.pattern = [Pitch(p) if type(p) is str else False for p in pattern]
     

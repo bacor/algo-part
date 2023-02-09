@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 # Name:         spaces.py
-# Purpose:      Define the melody and tintanibulli pitch spaces
+# Purpose:      Define the melody and tintinnabuli pitch spaces
 #
 # Authors:      Bas Cornelissen
 #
@@ -285,7 +285,7 @@ class ScalarPitchSpace:
     def neighbor(self, pitch: Pitch, position: int) -> Pitch:
         """Project a pitch onto the scale in a certain position. If p is the
         position, this method returns the step that is |p| scale steps away from
-        the pitch. This reformulates the concept of tintanibulli positions."""
+        the pitch. This reformulates the concept of tintinnabuli positions."""
         if position == 0:
             if pitch in self:
                 return Pitch(pitch)
@@ -551,8 +551,8 @@ class MelodicSpace(ScalarPitchSpace):
         return retrograde(self.mode2(steps, center=center))
 
 
-class TintanibulliSpace(ScalarPitchSpace):
-    """A tintanibulli space.
+class TintinnabuliSpace(ScalarPitchSpace):
+    """A tintinnabuli space.
 
     Parameters
     ----------
@@ -570,7 +570,7 @@ class TintanibulliSpace(ScalarPitchSpace):
         pitches: Optional[Iterable[Union[Pitch, str]]] = None,
         name: Optional[str] = None,
         **kwargs,
-    ) -> TintanibulliSpace:
+    ) -> TintinnabuliSpace:
         """"""
         if pitches is not None:
             chord = Chord(pitches)

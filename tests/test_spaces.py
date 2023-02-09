@@ -1,5 +1,5 @@
 import unittest
-from tintanibullipy import *
+from tintinnabulipy import *
 from music21.scale import MajorScale
 from music21.scale import MinorScale
 from music21.scale import ConcreteScale
@@ -94,8 +94,8 @@ class TestMelodicPitchSpace(unittest.TestCase):
         self.assertListEqual(M.mode4(2), [Pitch('A2'), Pitch('B2'), Pitch('C3')])
 
 
-class TestTintanibulliSpace(unittest.TestCase):
+class TestTintinnabuliSpace(unittest.TestCase):
 
     def test_repr(self):
-        T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
-        self.assertEqual(str(T), '<TintanibulliSpace C-major triad center=C4>')
+        T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
+        self.assertEqual(str(T), '<TintinnabuliSpace C-major triad center=C4>')

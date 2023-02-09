@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # ------------------------------------------------------------------------------
 # Name:         __init__.py
-# Purpose:      Main file of tintanibullipy
+# Purpose:      Main file of tintinnabulipy
 #
 # Authors:      Bas Cornelissen
 #

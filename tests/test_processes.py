@@ -1,5 +1,5 @@
 import unittest
-from tintanibullipy import *
+from tintinnabulipy import *
 from music21.scale import MajorScale
 from music21.scale import MinorScale
 from music21.scale import ConcreteScale
@@ -12,7 +12,7 @@ Ctriad = ScalarPitchSpace(pitches=['C4', 'E4', 'G4'])
 class TestProcesses(unittest.TestCase):
 
     def test_constant(self):
-        T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
+        T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
         M = MelodicSpace(MajorScale('C4'))
 
         melody = M.mode1(4)
@@ -25,7 +25,7 @@ class TestProcesses(unittest.TestCase):
         self.assertSequenceEqual(tin, target)
 
     def test_alternating(self):
-        T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
+        T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
         M = MelodicSpace(MajorScale('C4'))
 
         melody = [Pitch(p) for p in ['C4', 'D4', 'E4', 'F4', 'G4']]
@@ -38,7 +38,7 @@ class TestProcesses(unittest.TestCase):
         self.assertSequenceEqual(tin2, target2)
 
     def test_step(self):
-        T = TintanibulliSpace(Chord(['C4', 'E4', 'G4']))
+        T = TintinnabuliSpace(Chord(['C4', 'E4', 'G4']))
         M = MelodicSpace(MajorScale('C4'))
 
         melody = [Pitch(p) for p in ['C4', 'D4', 'E4', 'F4', 'G4']]

@@ -20,7 +20,7 @@ def title(title, ax=None, x=0, ha='left', fontweight='bold', **kwargs):
     if ax is None: ax = plt.gca()
     ax.set_title(title, x=x, ha=ha, fontweight=fontweight, **kwargs)
     
-def tintanibulli_grid(ax=None, grid=True):
+def tintinnabuli_grid(ax=None, grid=True):
     if ax is None: ax = plt.gca()
     y_min, y_max = ax.get_ylim()
     labels = [f'E{octave}' for octave in [2, 3, 4, 5]]
