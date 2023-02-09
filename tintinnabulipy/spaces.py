@@ -17,6 +17,8 @@ from music21.note import Note
 from music21.pitch import Pitch
 from music21.chord import Chord
 from music21.scale import ConcreteScale
+from music21.scale.intervalNetwork import Direction
+
 
 import matplotlib.pyplot as plt
 from matplotlib.ticker import IndexLocator
@@ -295,7 +297,7 @@ class ScalarPitchSpace:
         return self.scale.next(
             pitch,
             stepSize=np.abs(position),
-            direction="descending" if position < 0 else "ascending",
+            direction=Direction.DESCENDING if position < 0 else Direction.ASCENDING,
             getNeighbor=True,
         )
 
