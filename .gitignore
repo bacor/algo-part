@@ -1,10 +1,15 @@
-TBR
-playground
-
-env
-.ipynb_checkpoints/
+# This directory contains both the original and reconstructed scores
+# and should be excluded for obvious copyright reasons
 scores/
 
+# Temporary stuff
+tmp/
+
+# Python environment and 
+env
+
+# Other stuff
+.ipynb_checkpoints/
 __pycache__
 .vscode
 .mscbackup/
