@@ -2,8 +2,9 @@
 # and should be excluded for obvious copyright reasons
 scores/
 
-# Temporary stuff
+# Temporary stuff etc
 tmp/
+playground/
 
 # Python environment and 
 env
