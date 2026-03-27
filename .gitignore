@@ -5,6 +5,19 @@ scores/
 # Temporary stuff etc
 tmp/
 playground/
+tex/out
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.ent
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.dvi
 
 # Python environment and 
 env
